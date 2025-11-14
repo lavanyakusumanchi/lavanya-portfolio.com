@@ -1,0 +1,45 @@
+#root {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #0f172a, #1e293b);
+}
+
+section {
+  position: relative;
+  overflow: hidden;
+}
+
+section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(15, 23, 42, 0.97), rgba(30, 41, 59, 0.97));
+  z-index: 0;
+}
+
+section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Add subtle gradient overlays for depth */
+section:nth-child(odd)::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, rgba(59, 130, 246, 0.03), rgba(99, 102, 241, 0.03));
+  z-index: 0;
+}
+
+section:nth-child(even)::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-45deg, rgba(59, 130, 246, 0.03), rgba(99, 102, 241, 0.03));
+  z-index: 0;
+}
+
+/* Enhance section transitions */
+section + section {
+  border-top: 1px solid rgba(148, 163, 184, 0.1);
+}
